@@ -1,0 +1,5 @@
+max interations boarderX boarderY printSteps
+1               2        3        n
+
+0 0 0
+0 + 0

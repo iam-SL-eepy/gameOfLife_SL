@@ -1,0 +1,37 @@
+Long Shi
+iam.sl.eepy3418@gmail.com
+567-208-0686
+
+* please fell free to contact me if anything is not clear or you have issue running the simulation
+
+- intro:		this simple app is a simulation of Conway's Game of Life.
+
+- input:		sampleInput.txt in src/main/resources is currently functioning as the input file of the simulation. 
+				the first line is the column header for the params of the simulation: max iterations, boarderX(row boarder), boarderY(col boarder) and printSteps
+				the second line will be the actual values corresponds to each params, separated by spaces
+				third line is left empty for readability
+				the actual initial gird state starts from line 4. '+' for alive node, anything else will be treated as dead nodes.
+				empty lines will be considered a row with all dead nodes.
+				this simulation will only read in nodes within the specified boarder, rest will be ignored
+
+- example input:
+				max interations boarderX boarderY printSteps
+				5               6        8        y
+
+				0 0 0 0 0 0 + 0
+				+ + + 0 0 0 + 0
+				0 0 0 0 0 0 + 0
+				0 0 0 0 0 0 0 0
+				0 0 0 + + 0 0 0
+				0 0 0 + + 0 0 0
+
+- output:		output will contain init state, states after each step if 'y' for printSteps, and a final state. each state separated by line of '='s
+
+- run the sim:	simply import the project into a java workspace and run as java application.
+
+- performance:
+				used 4 data models: grid, coordinate, cell and state to represent the nature of the simulation game.
+				grid contains basic simulation params and use a hash with coordinates as keys and cells(nodes) as values.
+				while reading through each cell, cell's state and number of neighbors will be updated for the possible next iteration of simulation. all its neighbor 
+				cell's number of neighbors will also be updated. any dead cell with no neighbors will be removed from the hash for less memory consumption. for 
+				each iteration of the simulation, all cells will be traversed and up to 8 neighbor cells can be updated.
